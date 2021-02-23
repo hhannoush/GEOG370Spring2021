@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" 
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
+    crossorigin=""></script>
+
+    <script src = "./Data/src.geojson"></script>
+    <script src = "./Data/stores.geojson"></script>
+    <script src = "./Data/tower.geojson"></script>
+	
+</head>
+<body>
+
+<div id="mapid" style="width: 1262px; height: 562px;"></div>
+
+<script>
+
+	var map = L.map('mapid').setView([35.9092, -79.0489], 18);
+
+	L.tileLayer('https://{s}.tile.thunderforest.com/pioneer/{z}/{x}/{y}.png', {}).addTo(map);
+
+    var srcPopup = "Climbing Wall<br/><img src = 'https://www.unco.edu/_resources/.ldp-images/.private_ldp/a181142/production/master/1e3f7bb8-805d-437f-a3df-f454b6535349.jpg' width = '100px'/>";
+    var storesPopup = "UNC Student Stores<br/><img src = 'https://www.ctwilson.com/wp-content/uploads/2017/11/uncstore4.jpg' width = '100px'/>";
+    var towerPopup = "UNC Bell Tower<br/><img src = 'https://www.unc.edu/wp-content/uploads/2019/08/020319_bell_tower_summer003-1.jpg' width = '100px'/>";
+	
+    L.marker([35.9096638, -79.0477541], {icon: srcIcon}).addTo(map).bindPopup(srcPopup).openPopup();
+    L.marker([35.9098278, -79.0483754], {icon: storesIcon}).addTo(map).bindPopup(storesPopup).openPopup();
+    L.marker([35.908607,-79.0492161], {icon: towerIcon}).addTo(map).bindPopup(towerPopup).openPopup();
+
+	L.polygon([
+		[35.9096638, -79.0477541],
+        [35.9098278, -79.048375],
+        [35.908607, -79.049216]
+	]).addTo(map).bindPopup("A beautiful triangle polygon");
+
+</script>
+
+</body>
+</html>
