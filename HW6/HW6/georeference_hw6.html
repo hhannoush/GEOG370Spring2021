@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet Preview</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+  <style type="text/css">
+    body {
+       margin: 0;
+       padding: 0;
+    }
+    html, body, #map{
+       width: 100%;
+       height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+      
+      var map = L.map('map').setView([40.02048439159519, -105.29017045459105], 14.0);
+
+      // Icon Variables
+      var roadIcon = L.icon({
+        iconUrl: 'https://image.flaticon.com/icons/png/128/3175/3175177.png',
+        iconSize:     [50, 50],
+        popupAnchor:  [0,0]
+          });
+      
+      var houseIcon = L.icon({
+        iconUrl: 'https://image.flaticon.com/icons/png/512/119/119583.png',
+        iconSize:     [50, 50],
+        popupAnchor:  [0,0]
+          });
+
+      var fieldIcon = L.icon({
+        iconUrl: 'https://image.flaticon.com/icons/png/512/183/183239.png',
+        iconSize:     [50, 50],
+        popupAnchor:  [0,0]
+          });
+
+      // Popup Variables
+      var roadPopup = "The road shown in the 1951 aerial photo no longer exists today.<br/><img src = './/Popup_Photos/roads.png' width = '300px'/>";
+      var housePopup = "There is increased development along city outskirts<br/><img src = './/Popup_Photos/development.png' width = '300px'/>";
+      var fieldPopup = 
+      "The baseball field from 1951 is no longer a baseball field. In addition, there is an added building to the right of the football stadium that has solar panels.<br/><img src = './/Popup_Photos/field_solar.png'width = '300px'/>";
+
+      // Marker Variables
+      var roadGone = L.marker([40.01748439159519, -105.31317045459105], {icon: roadIcon}).bindPopup(roadPopup).openPopup();
+      var houses = L.marker([40.03700869203111, -105.26917045459105], {icon: houseIcon}).bindPopup(housePopup).openPopup();
+      var baseball = L.marker([40.01199869203111, -105.26607045459105], {icon: fieldIcon}).bindPopup(fieldPopup).openPopup();
+
+      var Esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', 
+          {attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+          }).addTo(map);
+      
+      var aerialPhoto = L.tileLayer('./HW6_Tiles_new/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 16,
+        tms: false,
+        attribution: 'USGS' 
+      })
+
+      var tileLayers = {
+        "Esri World Imagery Map": Esri,
+        "Boulder, CO Photo": aerialPhoto
+      }
+
+      var Vector = {
+        "Changes in Road": roadGone,
+        "Increased Development": houses,
+        "Baseball Field and Solar Panels": baseball
+      }
+
+      L.control.layers(tileLayers, Vector).addTo(map);
+
+  </script>
+</body>
+</html>
