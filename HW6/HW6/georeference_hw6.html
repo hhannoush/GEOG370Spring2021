@@ -52,10 +52,11 @@
       var fieldPopup = 
       "The baseball field from 1951 is no longer a baseball field. In addition, there is an added building to the right of the football stadium that has solar panels.<br/><img src = './/Popup_Photos/field_solar.png'width = '300px'/>";
       var roadPopup = "The road shown in the 1951 aerial photo no longer exists today.<br/><img src = './/Popup_Photos/Capture.png' width = '300px'/>";
+      var treesPopup = "The road shown in the 1951 aerial photo no longer exists today.<br/><img src = './/Popup_Photos/Capture.png' width = '300px'/>";
 
 
       // Marker Variables
-      var roadGone = L.marker([40.01748439159519, -105.31317045459105], {icon: roadIcon}).bindPopup(roadPopup).openPopup();
+      var roadGone = L.marker([40.01748439159519, -105.31317045459105], {icon: roadIcon}).bindPopup(treesPopup).openPopup();
       var houses = L.marker([40.03700869203111, -105.26917045459105], {icon: houseIcon}).bindPopup(housePopup).openPopup();
       var baseball = L.marker([40.01199869203111, -105.26607045459105], {icon: fieldIcon}).bindPopup(fieldPopup).openPopup();
 
