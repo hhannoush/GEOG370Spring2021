@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 8</title>
+</head>
+<body>
+    <h1>Homework 8: Census Data Ratio Choropleths </h1>
+    <h2>Heidi Hannoush</h2>
+    <h3>The following maps are choropleths of the percentage of immigrants in NJ counties. I chose this ratio because I am interested in how concentrations of immigrant populations change with distance from cities. Using the percentage of immigrants in each county instead of the real number allows each county to be analyzed independent of population.</h3>
+    <h3>This first choropleth uses natural breaks to show the percentage of immigrants in each NJ county. It shows an accurate representation of immigrant distribution. However, if there was not significant variation within this dataset, natural breaks would not work ideally as it would be more difficult to find data points at which to create an accurate break.</h3>
+    <!-- Your map goes here -->
+    <a href="Natural_Breaks.png">
+        <img src="Natural_Breaks.png" alt="your map" width='850px'>
+        </a>
+
+    <h3>This second choropleth uses quantiles to show the percentage of immigrants in each NJ county. Each classification is represented equally, which is good for showing an equal distribution on the map. Unfortunately, the variation is lost above the highest quantile, 28.1%, which is misleading for this dataset which as a lot of variation above 28.1%. A map may also lose such distinctness in the lower quantile as well, though this map does not. </h3>
+    <a href="Quantiles.png">
+        <img src="Quantiles.png" alt="your map" width='850px'>
+        </a>
+    
+    <h3>This third choropleth uses pretty breaks to show the percentage of immigrants in each NJ county. The legend is easy to read and the classifications are in equal incredments, i.e. each new color shows an increase of 10%. The map does a good job of giving a general impression of where the larger percentages of immigrants live, or in other words areas of over and under representation. Unfortunately, this makes the map mostly the same color.</h3>
+    <a href="Pretty_Breaks.png">
+        <img src="Pretty_Breaks.png" alt="your map" width='850px'>
+        </a>
+
+    <!-- Link to your shapefile in Github and you CSV -->
+    <h2>Data used for this project</h2>
+        <a href="./ACSDT5YSPT2015.B05012_2021-03-04T134203/ACSDT5YSPT2015.B05012_data_with_overlays_2021-03-04T133955.csv"> CSV dataset </a>
+        <p></p>
+        <a href="./join/NJ_102711.shp"> Link to shapefile </a>
+
+    <h3>Thanks for stopping by!</h3>
+    
+</body>
+</html>
