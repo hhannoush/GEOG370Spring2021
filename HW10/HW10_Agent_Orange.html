@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 8</title>
+</head>
+<body>
+    <h1>Homework 10: Geoprocessing </h1>
+    <h2>Heidi Hannoush</h2>
+    <h3>This is a map of the areas the US Military sprayed with Agent Orange using C-123 planes in Laos from 1965-1968. Agent Orange is a powerful herbicide; the U.S. military used it during the Vietnam War to destroy crops and reduce forest cover. Much of the herbicide was sprayed along the Ho Chi Minh Trail, which was used by the North Vietnamese to transport materials.</h3>
+    <h3>Unfortunately, the herbicide had devastating environmental and health effects on communities living in sprayed areas as well as U.S. soldiers who were there temporarily fighting. While the U.S. recognizes the immoratily of the use of Agent Orange today and offers reparations to both people in Vietnam and U.S. veterans, there are still many victims who go unnoticed.</h3>
+    <h3>Such is the point of this map. Although Laos was neutral during the war, Agent Orange was still sprayed in its boundaries. The spraying of Agent Orange was much more concentrated in Laos compared to Vietnam as the Ho Chi Minh Trail runs through a smaller fraction of the country. The areas near the Lao-Vietnamese border are also populated by smaller and poorer communities who often go ignored.</h3>
+    <h3>The purpose of this map is to show the provinces of Laos most impacted by Agent Orange sprays. If the U.S. or Laos governments ever wish to pursue reparations, they should look at areas most affected.</h3>
+    <h3>I used convex hull to create a polygon of the general area Agent Orange was sprayed. Each orange point represents the starting point of a flight route that dumped Agent Orange near the area. I also thought the convex hull polygon made it more obvious what area the callout is representing.</h3>
+    <h3>Within the callout, I used intersection so that each point would have the same data as the Lao province it was in. I used this data to find the total amount of liters of Agent Orange sprayed in each province and made a choropleth with that data.</h3>
+    <!-- Your map goes here -->
+    <a href="Final_Map.png">
+        <img src="Final_Map.png" alt="your map" width='1000px'>
+        </a>
+
+    <!-- Link to your shapefile in Github and you CSV -->
+    <h2>Data used for this project</h2>
+        <p></p>
+        <a href="http://www.workerveteranhealth.org/milherbs/new/herbs.php?s=0"</a> C-123 Flights Data Website </a>
+        <p></p>
+        <a href="https://data.amerigeoss.org/tr/dataset/lao-admin-boundaries"</a> Laos Administrative Boundaries Website </a>
+        <p></p>
+        <a href="./Agent_Orange.csv"> C-123 Flights CSV Dataset </a>
+
+    <h2>Thanks for stopping by!</h2>
+    
+</body>
+</html>
